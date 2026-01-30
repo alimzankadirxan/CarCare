@@ -1,40 +1,30 @@
 import 'package:flutter/material.dart';
+import 'car_model.dart';
 
 class SpecsScreen extends StatelessWidget {
   const SpecsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    final titleSize = size.width * 0.06;
-    final textSize = size.width * 0.045;
+    // Получаем выбранную машину из аргументов навигатора
+    final Car car = ModalRoute.of(context)!.settings.arguments as Car;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Характеристики')),
+      appBar: AppBar(title: Text('Характеристики ${car.name}')),
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Характеристики автомобиля',
-                style: TextStyle(fontSize: titleSize, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              Text('Мощность: 220 л.с.', style: TextStyle(fontSize: textSize)),
-              Text('Объем двигателя: 2.0 л', style: TextStyle(fontSize: textSize)),
-              Text('Тип топлива: Бензин', style: TextStyle(fontSize: textSize)),
-              const SizedBox(height: 30),
-              SizedBox(
-                width: size.width * 0.5,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('Назад'),
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: ListView.builder(
+            padding: const EdgeInsets.all(16),
+            itemCount: car.specs.length,
+            itemBuilder: (context, index) {
+              return Card(
+                child: ListTile(
+                  leading: const Icon(Icons.check_circle_outline, color: Colors.green),
+                  title: Text(car.specs[index]),
                 ),
-              ),
-            ],
+              );
+            },
           ),
         ),
       ),

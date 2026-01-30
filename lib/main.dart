@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'detail_screen.dart';
-import 'specs_screen.dart';
+import 'posts_screen.dart';
 
-void main() {
-  runApp(const CarCareApp());
-}
+void main() => runApp(const CarCareApp());
 
 class CarCareApp extends StatelessWidget {
   const CarCareApp({super.key});
@@ -14,16 +12,12 @@ class CarCareApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'CarCare',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-        scaffoldBackgroundColor: Colors.grey[100],
-      ),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blueGrey),
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
         '/detail': (context) => const DetailScreen(),
-        '/specs': (context) => const SpecsScreen(),
+        '/posts': (context) => const PostsScreen(),
       },
     );
   }
