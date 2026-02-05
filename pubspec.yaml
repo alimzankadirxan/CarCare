@@ -1,0 +1,38 @@
+name: car_care
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.2.2  
+  crypto: ^3.0.3
+
+  cupertino_icons: ^1.0.8
+  http: ^1.1.0 # Теперь отступ правильный
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/passat.png
+    - assets/images/m5.png
+    - assets/images/300.png
+    - assets/images/Porsche 911 Turbo S.png
+    - assets/images/Tesla Model 3.png
+    - assets/images/app_icon.png
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/app_icon.png # замени на путь к своей иконке
